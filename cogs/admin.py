@@ -1,4 +1,5 @@
 import discord
+import config
 import traceback
 
 from typing import Literal, Optional
@@ -52,8 +53,8 @@ class Admin(commands.Cog):
     @commands.command(name="sync")
     @commands.has_role('Citrusy Admin')
     async def sync(self, ctx):
-        ctx.bot.tree.copy_global_to(guild=discord.Object(id=950937956682698862))
-        await ctx.bot.tree.sync(guild=discord.Object(id=950937956682698862))
+        ctx.bot.tree.copy_global_to(guild=discord.Object(id=config.THIS_GUILD))
+        await ctx.bot.tree.sync(guild=discord.Object(id=config.THIS_GUILD))
     
     @commands.hybrid_command(name="feedback")
     async def feedback(self, ctx):
