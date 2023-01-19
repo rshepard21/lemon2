@@ -41,7 +41,7 @@ class Crystals(commands.Cog):
     @tasks.loop(hours=24)
     async def crystal(self):
         await self.bot.wait_until_ready()
-        guild = self.bot.get_guild(950937956682698862)
+        guild = self.bot.get_guild(config.THIS_GUILD)
         channel = self.bot.get_channel(config.CRYSTAL_CHANNEL)
         async for m in channel.history(limit=1):
             if m:
