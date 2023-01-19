@@ -50,7 +50,7 @@ class Admin(commands.Cog):
         DB.commit()
 
     @commands.command(name="sync")
-    @commands.has_role('Citrusy Rye')
+    @commands.has_role('Citrusy Admin')
     async def sync(self, ctx):
         ctx.bot.tree.copy_global_to(guild=discord.Object(id=950937956682698862))
         await ctx.bot.tree.sync(guild=discord.Object(id=950937956682698862))
