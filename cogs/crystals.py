@@ -50,7 +50,6 @@ class Crystals(commands.Cog):
                 for u in guild.members:
                     update = "UPDATE viewed SET value = '{0}' WHERE user = '{1}'".format(0, u.name)
                     self.cur.execute(update)
-                    print(self.cur.fetchall())
                     DB.commit()
 
                 await channel.send("The crystal of the day is ready!", view=CrystalNotification())
