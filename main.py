@@ -12,7 +12,7 @@ class Lemon(commands.Bot):
         super().__init__(command_prefix="!!", intents=discord.Intents.all())
 
     async def on_ready(self):
-        print('Ready to begin my lemony day!')
+        print(f'{self.user} is ready.')
 
     async def setup_hook(self) -> None:
         for f in os.listdir('./cogs'):

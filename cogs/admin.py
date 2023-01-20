@@ -40,7 +40,7 @@ class FeedBackButton(discord.ui.View):
 class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.cur = DB.cursor(buffered=True)
+        self.cur = DB.cursor()
         self.db_reconnect.start()
     
     @commands.Cog.listener()
@@ -77,7 +77,7 @@ class Admin(commands.Cog):
         await ctx.send('Database resynced.')
 
     
-    @tasks.loop(hours=1)
+    @tasks.loop(minutes=15)
     async def db_reconnect(self):
         await self.bot.wait_until_ready()
         DB.ping(True)
