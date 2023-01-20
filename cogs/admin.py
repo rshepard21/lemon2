@@ -77,7 +77,7 @@ class Admin(commands.Cog):
         await ctx.send('Database resynced.')
 
     
-    @tasks.loop(hours=4)
+    @tasks.loop(hours=1)
     async def db_reconnect(self):
         await self.bot.wait_until_ready()
         DB.ping(True)
